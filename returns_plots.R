@@ -33,9 +33,9 @@ table_plot_ret<-function(plot,title,n="",freq,type)
     plot[,ix] <- cumprod(plot[,ix] + 1) - 1
   }
 
-  
-  
-  
+  breaks<-paste0(round(nrow(plot)/freq,0)," months")
+  if (nrow(plot)<freq)
+  breaks<-paste0(round(freq/7,0)," days")
   
   if(ncol(plot)==4){colors=c("red","black","yellowgreen")
   sizes=c(1,0.5,0.5)}
@@ -51,7 +51,7 @@ table_plot_ret<-function(plot,title,n="",freq,type)
     geom_line()+
     ggtitle(paste0("Cumulative ",type," Returns \n Eq. Wt. ",title," ",n," \n ",plot$Date[1]," to ", plot$Date[nrow(plot)]))+
     labs(x="Date",y="Cumulative Returns (in %)") +
-    scale_x_date(date_labels = "%m/%Y",date_breaks = paste0(round(nrow(plot)/freq,0)," months"))+
+    scale_x_date(date_labels = "%m/%Y",date_breaks = breaks )+
     theme(axis.text.x = element_text(angle = 270, hjust = 1),legend.position="bottom", legend.title = element_blank(), plot.title = element_text(hjust=0.5))+
     scale_y_continuous(labels = scales::percent,breaks = seq(min(plot[2:ncol(plot)]),max(plot[2:ncol(plot)]),0.1*(max(plot[2:ncol(plot)])-min(plot[2:ncol(plot)]))))+
     scale_color_manual(values=colors)+ scale_size_manual(values=sizes)

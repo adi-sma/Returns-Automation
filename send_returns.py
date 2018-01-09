@@ -3,7 +3,7 @@ import time
 
 EMAIL_FROM = "johnl@socialmarketanalytics.com"
 EMAIL_PWD = "ua$3AdM@"
-EMAIL_TO = ["johnl@socialmarketanalytics.com", "coltons@socialmarketanalytics.com", "adi@socialmarketanalytics.com", "jeffb@socialmarketanalytics.com", "joeg@socialmarketanalytics.com"]
+EMAIL_TO = ["johnl@socialmarketanalytics.com", "coltons@socialmarketanalytics.com", "adi@socialmarketanalytics.com", "jeffb@socialmarketanalytics.com"]
 EMAIL_SUBJECT = "Weekly Returns Charts"
 dow = time.strftime("%a")
 
